@@ -1,43 +1,23 @@
 <?php
 
-require "./controllers/userController.php";
-require "./controllers/productController.php";
-require "./controllers/productListController.php";
-require "./controllers/productPDOController.php";
-require "./data/db.php";
-
-// $db->exec('DELETE FROM products');
-// $db->exec("DELETE FROM sqlite_sequence WHERE name='products'");
-
-// foreach ($db->query("SELECT * FROM products") as $row) {
-//     echo $row['title'] . " - " . $row['price'] . "<br>";
-// }
-
-// $query = $db->query("SELECT * FROM products");
-// if ($query === false) {
-//     var_dump($db->errorInfo());
-//     die('Erreur SQL');
-// }
-// $products = $query->fetchAll(PDO::FETCH_OBJ);
-// echo '<pre>';
-// print_r($products[0]->description);
-// echo '</pre>';
+require "./db.php";
+require "./controllers/ProductsController.php";
+require "./controllers/UserController.php";
+require "./models/users/UserDao.php";
+require "./models/products/ProductDao.php";
 
 
 
-if (isset($_GET['page']) && $_GET['page'] == 'product') {
-    $productController = new ProductController();
-    $productController->load("Dildo", "24.99");  
-} elseif (isset($_GET['page']) && $_GET['page'] == 'products'){
-    // $productListController = new ProductListController();
-    // $productListController->loadData();
-    // $productListController->loadProductList();
-    $productsPDO = new ProductPdoController($db);
-    $productsPDO->getAllProducts();
-    $productsPDO->viewProducts();
+$pdo = Db::getConnecte();
+$userDao = new UserDao($pdo);
+$productDao = new ProductDao($pdo);
+
+if (isset($_GET['page']) && $_GET['page'] == 'products'){
+    $productsPDO = new ProductsController($userDao);
+    $productsPDO->displayAllProducts();
 }else {
-    $userController = new UserController();
-    $userController->nameUser("Carla");
+    $userController = new UserController($userDao);
+    $userController->displayAllUsers();
 }
 
 

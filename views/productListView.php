@@ -11,7 +11,7 @@
             <h1>Products List</h1>
             <ul>
                 <?php
-                foreach(Product::getList() as $k => $e) {
+                foreach($products as $k => $e) {
                     echo "<li>Title :" . htmlspecialchars($k, ENT_QUOTES, "UTF-8") . " Price : \$". htmlspecialchars($e, ENT_QUOTES, "UTF-8") . " </li>";
                 }
                 ?>
