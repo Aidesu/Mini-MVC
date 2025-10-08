@@ -18,7 +18,8 @@
                     $<?= htmlspecialchars($product->price, ENT_QUOTES, 'UTF-8') ?><br>
                     Stock : <?= htmlspecialchars($product->stock, ENT_QUOTES, 'UTF-8') ?>
                     <a href="?page=products&action=deleteProduct&id=<?= $product->id ?>" style="background-color: red; text-decoration: none; padding: 0.1rem; border-radius: 5px; color: white;">Delete</a>
-                    </li>
+                    <a href="?page=products&action=editProduct&id=<?= $product->id ?>" style="background-color: rgb(14, 148, 231); text-decoration: none; padding: 0.1rem; border-radius: 5px; color: white;">Edit</a>
+                </li>
                     <?php endforeach; ?>
             </ul>
             <a href="?page=products&action=addProduct" style="position: fixed; bottom: 2rem; right: 2rem; background-color: black; padding: 0.5rem; border-radius: 15px; text-decoration: none; color: white;">+ Add product</a>

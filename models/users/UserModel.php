@@ -6,14 +6,16 @@ class User {
     public $firstName;
     public $lastName;
     public $birthDate;
-    public $ipAddress;
+    public $country;
+    public $image;
 
-    public function __construct( $id, $firstName, $lastName, $birthDate, $ipAddress ){
+    public function __construct( $id, $firstName, $lastName, $birthDate, $country, $image ) {
         $this->id = $id;
         $this->firstName = $firstName;
         $this->lastName = $lastName;
         $this->birthDate = $birthDate;
-        $this->ipAddress = $ipAddress;
+        $this->country = $country;
+        $this->image = $image;
     }
 
 }

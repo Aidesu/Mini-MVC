@@ -1,4 +1,4 @@
-<?php>
+<?php
 
 class ProductModel {
 
@@ -9,13 +9,13 @@ class ProductModel {
     public $stock;
     public $image;
 
-    public function __construct($id, $title, $description, $price, $stock, $image){
-        $this->id = $id;
+    public function __construct($title, $description, $price, $stock, $image = null, $id = null) {
         $this->title = $title;
         $this->description = $description;
         $this->price = $price;
-        $this->stocke = $stock;
+        $this->stock = $stock;
         $this->image = $image;
+        $this->id = $id;
     }
     
 }
